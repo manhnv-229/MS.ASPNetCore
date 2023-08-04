@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace MS.Middleware.Demo.Controllers
 {
@@ -29,5 +29,16 @@ namespace MS.Middleware.Demo.Controllers
             })
             .ToArray();
         }
+
+       
+        [HttpGet("test")]
+        public IEnumerable<WeatherForecast> GetTest()
+        {
+          throw new Exception("Lỗi");
+        }
+
+        [ApiExplorerSettings(IgnoreApi = true)]
+        [Route("/error")]
+        public IActionResult HandleError() => Problem();
     }
 }

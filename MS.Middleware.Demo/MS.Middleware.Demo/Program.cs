@@ -9,7 +9,6 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
 var app = builder.Build();
 
 
@@ -37,12 +36,12 @@ var app = builder.Build();
 //});
 
 
-
-app.UseCustomMiddleware();
+//app.UseCustomMiddleware();
 
 if (app.Environment.IsDevelopment())
 {
-    app.UseDeveloperExceptionPage();
+    app.UseExceptionHandler("/error");
+    //app.UseDeveloperExceptionPage();
     app.UseSwagger();
     app.UseSwaggerUI();
 }
@@ -50,18 +49,15 @@ if (app.Environment.IsDevelopment())
 
 
 app.UseHttpsRedirection();
-
-
-
 app.UseAuthorization();
-
-
-
+//app.UseCustomMiddleware();
 app.MapControllers();
 
-app.Map("/contact", HandleMap.HandleContact);
-app.Map("/home", HandleMap.HandleWelcome);
-app.Map("/about", HandleMap.HandleAbout);
+
+//app.Map("/contact", HandleMap.HandleContact);
+//app.Map("/home", HandleMap.HandleWelcome);
+//app.Map("/about", HandleMap.HandleAbout);
+//app.MapWhen(context => context.Request.Query.ContainsKey("welcome"), HandleMap.HandleWelcome);
 
 //app.Run(async (context) =>
 //{

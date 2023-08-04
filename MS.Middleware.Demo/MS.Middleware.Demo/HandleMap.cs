@@ -6,7 +6,7 @@
         {
             app.Run(async context =>
             {
-                await context.Response.WriteAsync("Contact us at reach.rsmrocks@gmail.com");
+                await context.Response.WriteAsync("Contact me at manhnv229@gmail.com");
             });
         }
 
@@ -14,7 +14,7 @@
         {
             app.Run(async context =>
             {
-                await context.Response.WriteAsync("Hi from rsmrocks");
+                await context.Response.WriteAsync("Hi, I'am Manh.");
             });
         }
 
@@ -22,7 +22,7 @@
         {
             app.Run(async context =>
             {
-                await context.Response.WriteAsync("Welcome to our Blog");
+                await context.Response.WriteAsync("Welcome to Manh Software!");
             });
         }
     }
